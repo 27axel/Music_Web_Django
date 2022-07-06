@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'main/css/sign-up.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="auth">
+        <form role="form" class="auth-form" method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <p class="text-center main-text">Чтобы продолжить, войдите в систему</p>
+            <div class="form-group">
+                <label for="username" class="col-md-5" style="margin-left:35px">Имя пользователя</label>
+                <div class="col-md-10 input-area">
+                    <td>{{ form.username }}</td>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-md-5" style="margin-left:35px">Пароль</label>
+                <div class="col-md-10 input-area">
+                    <td>{{ form.password }}</td>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" value="login">Войти</button>
+            <p class="text-center">У вас нет аккаунта? <a class="auth-btn" href="{% url 'register' %}">Завести учетную запись</a></p>
+        </form>
+    </div>
+{% endblock %}

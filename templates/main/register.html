@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'main/css/sign-up.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="auth">
+        <form role="form" class="auth-form" action="." method="post">
+            <p class="text-center main-text">Завести учетную запись</p>
+            {% csrf_token %}
+            {{ user_form.as_p }}
+
+
+            <button type="submit" class="btn btn-primary">Завести учетную  запись</button>
+            <p class="text-center">Уже есть аккаунт? <a class="auth-btn" href="{% url 'login' %}">Войти</a></p>
+        </form>
+    </div>
+{% endblock %}

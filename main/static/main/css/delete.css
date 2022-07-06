@@ -1,0 +1,42 @@
+.deleteTrack {
+    color: white;
+    font-family: Roboto, sans-serif;
+    width: 50%;
+    margin-top: 126px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.main {
+    border: #313131 1px solid;
+    border-radius: 5px;
+    background-color: #313131;
+
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.btn-danger{
+    margin-left: 15px;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0 0 15px;
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+span {
+    display: flex;
+    justify-content: center;
+    padding: 30px 30px;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+}

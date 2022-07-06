@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'main/css/playlist.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <div class="container-fluid main-content">
+        <div class="content">
+            <div class="row">
+                <div class="col text-center">
+                    <p class="text-start title-text">МАРКЕТПЛЕЙС ДЛЯ <br> ПОКУПКИ И ПРОДАЖИ БИТОВ</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="group-items">
+            <div class="genre-container">
+                <div class="max-width-container">
+                    <div class="genres">
+                        <div class="genres-title">
+                            <h2>Популярные жанры</h2>
+                        </div>
+                        <div class="genres-item">
+                            <div class="items">
+                                {% for playlist in playlists %}
+                                    <div class="item-card">
+                                        <a href="{{ playlist.get_absolute_url }}"><img src="{{ playlist.image.url }}" class="img-thumbnail image-item" width="250" height="250"></a>
+                                        <p>{{ playlist }}</p>
+                                    </div>
+                                {% endfor %}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

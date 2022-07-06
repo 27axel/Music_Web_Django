@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'main/css/sign-up.css' %}">
+{% endblock %}
+{% block content %}
+    <form method="post" class="add_track" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p class="text-center main-text">Добавить трек</p>
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary" value="save">Добавить</button>
+    </form>
+    
+{% endblock %}

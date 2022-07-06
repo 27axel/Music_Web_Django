@@ -1,0 +1,119 @@
+.content-pane {
+    margin-top: 54px;
+}
+
+.max-width-container {
+    width: 100%;
+    max-width: 1300px;
+    margin: auto;
+}
+
+.track-list {
+    color: white;
+    padding-top: 50px;
+}
+
+.image-item {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.track{
+    display: flex;
+    padding: 12px 20px 12px 16px;
+    justify-content: space-between;
+    border-radius: 4px;
+}
+
+.track:hover {
+    background-color: #313131;
+}
+
+.play-track {
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    color: #298AE2;
+}
+
+.play-track .bi {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+}
+
+.play-track:hover {
+    font-size: 35px;
+    transition: .1s linear;
+}
+
+.track-card {
+    display: flex;
+}
+
+.track-info {
+    display: grid;
+    grid-template-columns: 16px repeat(3,minmax(0,max-content)) 12px;
+    grid-template-rows: auto auto;
+    grid-template-areas: ". info-title info-title info-title ."
+". info-subtitle info-tempo . .";
+}
+
+.info-title {
+    grid-area: info-title;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Roboto, sans-serif;
+}
+
+.info-subtitle {
+    display: flex;
+    align-items: center;
+    grid-area: info-subtitle;
+    font-size: 16px;
+    letter-spacing: .1px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #969396;
+    font-family: Roboto, sans-serif;
+}
+
+.info-tempo {
+    display: flex;
+    align-items: center;
+    grid-area: info-tempo;
+    font-size: 16px;
+    letter-spacing: .1px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #969396;
+    font-family: Roboto, sans-serif;
+}
+
+.info-card {
+    display: flex;
+    align-items: center;
+}
+
+.dot {
+    margin: 0 4px;
+}
+
+.cart-track {
+    font-size: 14px;
+    margin-right: 8px;
+    align-items: center;
+}
+
+span {
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+}

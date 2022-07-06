@@ -1,0 +1,35 @@
+.add_drumKit {
+    color: white;
+    font-family: Roboto, sans-serif;
+    width: 50%;
+    margin-top: 126px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.main-text{
+    font-size: 36px;
+    margin-bottom: 100px;
+    width: 100%;
+}
+
+
+
+input {
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+}
+
+p{
+    width: 50%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    font-family: Roboto, sans-serif;
+}
+
+.btn-primary {
+    display: block;
+    margin: 0 auto;
+    margin-top: 40px ;
+}

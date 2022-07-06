@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'main/css/delete.css' %}">
+{% endblock %}
+{% block content %}
+    <form action="{% url 'deleteTrack' item.id %}" method="POST" class="deleteTrack">
+        {% csrf_token %}
+        <div class="main">
+            <p class="text-center main-text">Удалить трек "{{ item }}"</p>
+            <span>Вы действительно хотите удалить <b>"{{ item }}"</b>?</span>
+
+            <div class="buttons">
+                <button type="button" class="btn btn-secondary" onclick="location.href='{% url 'profile' %}'">Отмена</button>
+                <button type="submit" class="btn btn-danger">Удалить</button>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}

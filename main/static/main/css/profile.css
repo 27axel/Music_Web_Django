@@ -1,0 +1,68 @@
+.title_items {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add_items {
+    display: flex;
+    align-items: center;
+}
+
+.btn_item {
+    background: #282828;
+    border-color: #282828;
+}
+
+.info-card {
+    width: 50px;
+    justify-content: space-between;
+}
+
+.bi-trash3-fill {
+    color: #686767;
+}
+
+.bi-trash3-fill:hover {
+    color: #e73232;
+    transition: .1s linear;
+    cursor: pointer;
+}
+
+.bi-pencil-fill {
+    color: #686767;
+}
+
+.bi-pencil-fill:hover {
+    color: #fff;
+    transition: .1s linear;
+    cursor: pointer;
+}
+
+.modal-content {
+    background-color: #363636;
+}
+
+ul {
+    font-size: 16px;
+    font-family: Roboto, sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+.name {
+    font-size: 16px;
+    font-family: Roboto, sans-serif;
+    margin-right: 30px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #298AE2;
+    transition: .1s linear;
+}

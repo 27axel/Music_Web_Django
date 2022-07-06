@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'main/css/playlist_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="content-pane">
+        <div class="tracks-container">
+            <div class="max-width-container">
+                <div class="track-list">
+                    <div class="list-title">
+                        <h1>{{ playlists.name }}</h1>
+                    </div>
+                    <div class="tracks">
+                    <h1>Треки</h1>
+                        {% for track in tracks %}
+                            <div class="track">
+                                <div class="track-card">
+                                    <div class="play-track" data-key="{{ track.audio.url }}">
+                                        <i class="bi playlistTrack bi-play-circle-fill" id="{{ forloop.counter0 }}"></i>
+                                    </div>
+                                    <img src="{{ track.image.url }}" class="img-thumbnail image-item" width="50" height="50">
+                                    <div class="track-info">
+                                        <div class="info-title">{{ track }}</div>
+                                        <div class="info-subtitle">{{ track.user }}</div>
+                                        <div class="info-tempo">
+                                            <div class="dot">•</div>
+                                            {{ track.bpm }} BPM
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info-card">
+                                    <a href="{{ track.audio.url }}" download="{{ track.name }}"><button type="button" class="btn btn-primary"><i class="bi bi-cart2 cart-track"></i><span>{{ track.price.price }} ₽</span></button></a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

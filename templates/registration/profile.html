@@ -1,0 +1,105 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_additional %}
+    {% if not tracks.exists %}
+        <link rel="stylesheet" href="{% static 'main/css/sign-up.css' %}">
+    {% else %}
+        <link rel="stylesheet" href="{% static 'main/css/playlist_detail.css' %}">
+        <link rel="stylesheet" href="{% static 'main/css/profile.css' %}">
+    {% endif %}
+{% endblock %}
+{% block content %}
+    <div class="content-main">
+        {% if not tracks.exists %}
+            <div class="container dashboard">
+            <p class="text-center content-text ">Создание нового контента</p>
+             <div class="row align-items-center">
+                <div class="col-4">
+
+                </div>
+                <div class="col">
+                    <div class="container item" onclick="location.href='{% url 'add_track' %}'">
+                        <p class="item-title1">Добавить трек</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-music-note img-item" viewBox="0 0 16 16">
+                          <path d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2z"/>
+                          <path fill-rule="evenodd" d="M9 3v10H8V3h1z"/>
+                          <path d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5V2.82z"/>
+                        </svg>
+                    </div>
+                </div>
+                 <div class="col">
+
+
+                </div>
+                 <div class="col">
+                    <div class="container item" onclick="location.href='{% url 'drumKit' %}'">
+                        <p class="item-title">Добавить DrumKit</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-folder img-item" viewBox="0 0 16 16">
+                          <path d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4H2.19zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707z"/>
+                        </svg>
+                    </div>
+                </div>
+                 <div class="col-4">
+
+                </div>
+
+              </div>
+        </div>
+        {% else %}
+            <div class="content-pane">
+                <div class="tracks-container">
+                    <div class="max-width-container">
+                        <div class="my_tracks">
+                            <div class="title_items">
+                                <div class="list-title">
+                                <h1>Мои треки</h1>
+                            </div>
+                                <div class="add_items">
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                  <button type="button" class="btn btn-secondary btn_item" onclick="location.href='{% url 'add_track' %}'"><i class="bi bi-music-note"></i> трек</button>
+                                  <button type="button" class="btn btn-secondary btn_item" onclick="location.href='{% url 'drumKit' %}'"><i class="bi bi-folder"></i> DrumKit</button>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="track-list">
+                                <div class="tracks">
+                                    {% for track in tracks %}
+                                        <div class="track">
+                                            <div class="track-card">
+                                                <div class="play-track" data-key="{{ track.audio.url }}">
+                                                    <i class="bi playlistTrack bi-play-circle-fill" id="{{ forloop.counter0 }}"></i>
+                                                </div>
+                                                <img src="{{ track.image.url }}" class="img-thumbnail image-item" width="50" height="50">
+                                                <div class="track-info">
+                                                    <div class="info-title">{{ track }}</div>
+                                                    <div class="info-subtitle">{{ track.user }}</div>
+                                                    <div class="info-tempo">
+                                                        <div class="dot">•</div>
+                                                        {{ track.bpm }} BPM
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="info-card">
+                                                <i class="bi bi-pencil-fill"></i>
+                                                <i class="bi bi-trash3-fill" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="location.href='{% url 'deleteTrack' track.id %}'"></i>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                            {% if not drumkit.exists %}
+                            {% else %}
+                                    <h3>DrumKit's</h3>
+                                    <ul>
+                                    {% for d in drumkit %}
+                                        <li><span class="name">{{ d.name }}</span><a href="{{ d.file.url }}" download="{{ d.name }}">Скачать <i class="bi bi-download"></i></a></li>
+                                    {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
